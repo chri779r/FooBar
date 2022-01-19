@@ -2,24 +2,38 @@
   .sales {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-
+    margin-top: 1rem;
+    .salesHeader {
+      margin-top: 2rem;
+    }
     .figures {
       display: flex;
       justify-content: center;
-      flex-direction: row;
+      flex-direction: column;
       gap: 5rem;
-      margin: 3rem 0;
+      margin: 3rem 3rem;
     }
   }
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (min-width: 819px) {
+  .manager {
+    .sales {
+      h4 {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1023px) {
   .manager {
     .sales {
       .figures {
-        flex-direction: column;
-        gap: 2rem;
+        justify-content: space-evenly;
+        flex-direction: row;
+      }
+      h4 {
+        font-size: 1.1rem;
       }
     }
   }

@@ -40,16 +40,29 @@ const namePrice = props.products.map((beer) => {
           label: 'Income chart',
           data: [sum, total-sum],
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)'
+            'rgb(112, 21, 216)',
+            'rgb(255, 29, 107)'
           ],
           hoverOffset: 4
         }]
       },
       options: {
         responsive: true,
+        plugins: { tooltip: {
+          titleFont: {
+            size: 18
+          },
+          bodyFont: {
+            size: 18
+          }
+        }}
+        
       }
   });
+
+  // myChart.canvas.parentNode.style.height = '300px'; 
+  // myChart.canvas.parentNode.style.width = '300px'; 
+
   return () => {
     myChart.destroy();
   }
@@ -76,53 +89,108 @@ const namePrice = props.products.map((beer) => {
           label: 'Orders Chart',
           data: [props.dayOrders, total-props.dayOrders],
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)'
+            'rgb(112, 21, 216)',
+            'rgb(255, 29, 107)'
           ],
           hoverOffset: 4
         }]
       },
       options: {
         responsive: true,
+        plugins: { tooltip: {
+          titleFont: {
+            size: 18
+          },
+          bodyFont: {
+            size: 18
+          }
+        }}
+        
       }
   });
+  // myChart.canvas.parentNode.style.height = '300px'; 
+  // myChart.canvas.parentNode.style.width = '300px'; 
+
   return () => {
     myChart.destroy();
   }
   },[ordersChartRef.current, props.dayOrders]) 
+//---------------------------------//
+  const avgChartRef = useRef()
+  useEffect(() =>{ 
+    if (!avgChartRef.current) {
+      // Stopper execution, hvis current ikke er sat
+      return
+    }
 
-  
+    const total = 200
+    const avgOrder = Math.round(sum/props.dayOrders).toFixed(0);
+    console.log(avgChartRef.current);
+    const myChart = new Chart(avgChartRef.current, {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Avg order income',
+          'Todays Goal',
+        ],
+        datasets: [{
+          label: 'Average Chart',
+          data: [avgOrder, total-avgOrder],
+          backgroundColor: [
+            'rgb(112, 21, 216)',
+            'rgb(255, 29, 107)'
+          ],
+          hoverOffset: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { 
+          tooltip: {
+            titleFont: {
+              size: 18
+            },
+            bodyFont: {
+              size: 18
+            }
+          },
+        }
+      }
+  });
+
+  // myChart.canvas.parentNode.style.height = '300px'; 
+  // myChart.canvas.parentNode.style.width = '300px'; 
+  return () => {
+    myChart.destroy();
+  }
+  },[avgChartRef.current, sum, props.dayOrders]) 
+
     
-      console.log(namePrice);
-      console.log(sum);
+      // console.log(namePrice);
+      // console.log(sum);
 
 
     return (
 <>
-<div>
-<canvas ref={totalChartRef} width="400" height="400"></canvas>
-<canvas ref={ordersChartRef} width="400" height="400"></canvas>
-</div>
-
-<div className="sales">
-            <div className="salesHeader">
-              <h3>Todays sales</h3>
-          </div>
-            <div className="figures">
-            <div>
-                <h4>Total income</h4>
-                <p>{sum} kr</p>
-            </div>
-            <div>
-                <h4>Total Orders</h4>
-                <p>{props.dayOrders}</p>
-            </div>
-            <div>
-                <h4>Average order income</h4>
-                <p>{Math.round(sum/props.dayOrders).toFixed(0)} kr</p>
-            </div>
-          </div>
-        </div>
+  <div className="sales">
+    <div className="salesHeader">
+      <h3>Todays sales</h3>
+    </div>
+    <div className="figures">
+      <div>
+        <h4>Total income</h4>
+        <canvas ref={totalChartRef} width="300" height="300"></canvas>
+      </div>
+      <div>
+        <h4>Total Orders</h4>
+        <canvas ref={ordersChartRef} width="300" height="300"></canvas>
+      </div>
+      <div>
+        <h4>Avg order income</h4>
+        <canvas ref={avgChartRef} width="300" height="300"></canvas>
+      </div>
+    </div>
+  </div>
 </>
 
         

@@ -12,15 +12,15 @@ export default function Manager(props) {
   return (
     <>
       <section className="manager">
-        <div className="header">
-          <h2>Managers overview</h2>
+        <div className="charts">
+          <Sales className="sales" {...props} />
+          <TopBeer className="topBeer" {...props} />
+          {/* <Workers className="workers" {...props} /> */}
         </div>
         <div>
-          <Sales className="sales" {...props} />
-          <Workers className="workers" {...props} />
-          <Inventory className="inventory" {...props} />
+        <Inventory className="inventory" {...props} />
         </div>
-        <TopBeer className="topBeer" {...props} />
+        
       </section>
     </>
   );

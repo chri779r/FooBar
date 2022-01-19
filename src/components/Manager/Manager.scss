@@ -1,74 +1,7 @@
-.manager {
-  display: grid;
-  margin-top: 100px;
-  grid-template-columns: 4fr 1fr;
-
-  h2,
-  h3 {
-    display: flex;
-    margin: 0 4rem;
-  }
-
-  .header {
-    grid-column: 1/-1;
-    margin-top: 1rem;
-  }
-}
-
-@media screen and (max-width: 1020px) {
+@media screen and (min-width) {
   .manager {
-    grid-template-columns: 1fr;
-
-    h2,
-    h3 {
-      display: flex;
-      margin: 0 4rem;
-    }
-    h2 {
-      font-size: 1.7em;
-    }
-
-    h3 {
-      font-size: 1.5em;
-    }
-
-    h4 {
-      font-size: 1.2em;
-    }
-
-    p {
-      font-size: 1.2em;
-    }
-
-    li {
-      font-size: 1.2em;
-    }
-  }
-}
-@media screen and (min-width: 300px) {
-  .manager {
-    h2,
-    h3 {
-      display: flex;
-      margin: 0 4rem;
-    }
-    h2 {
-      font-size: 1.2em;
-    }
-
-    h3 {
-      font-size: 1em;
-    }
-
-    h4 {
-      font-size: 0.85em;
-    }
-
-    p {
-      font-size: 0.75em;
-    }
-    li {
-      font-size: 0.75em;
+    .charts canvas {
+      height: 50%;
     }
   }
 }
