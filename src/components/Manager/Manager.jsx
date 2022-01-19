@@ -1,6 +1,6 @@
 import "./Manager.scss";
 import Inventory from "../helpers/Inventory/Inventory";
-import Workers from "../helpers/Workers/Workers";
+// import Workers from "../helpers/Workers/Workers";
 import TopBeer from "../helpers/Ranking/Ranking";
 import Sales from "../helpers/Sales/Sales";
 

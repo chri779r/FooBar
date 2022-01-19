@@ -60,9 +60,6 @@ const namePrice = props.products.map((beer) => {
       }
   });
 
-  // myChart.canvas.parentNode.style.height = '300px'; 
-  // myChart.canvas.parentNode.style.width = '300px'; 
-
   return () => {
     myChart.destroy();
   }
@@ -108,8 +105,6 @@ const namePrice = props.products.map((beer) => {
         
       }
   });
-  // myChart.canvas.parentNode.style.height = '300px'; 
-  // myChart.canvas.parentNode.style.width = '300px'; 
 
   return () => {
     myChart.destroy();
@@ -158,13 +153,11 @@ const namePrice = props.products.map((beer) => {
       }
   });
 
-  // myChart.canvas.parentNode.style.height = '300px'; 
-  // myChart.canvas.parentNode.style.width = '300px'; 
   return () => {
     myChart.destroy();
   }
   },[avgChartRef.current, sum, props.dayOrders]) 
-
+// Dependency array
     
       // console.log(namePrice);
       // console.log(sum);
@@ -192,7 +185,5 @@ const namePrice = props.products.map((beer) => {
     </div>
   </div>
 </>
-
-        
     )
 }
