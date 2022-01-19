@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "./Inventory.scss";
+
+import Chart from 'chart.js/auto';
+
 
 export default function Inventory(props) {
   function Keg(props) {

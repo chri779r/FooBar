@@ -4,7 +4,6 @@ import "./Ranking.scss"
 import Chart from 'chart.js/auto';
 
 
-
 export default function TopBeer(props) {
     const ranking = [...props.storage];
     // let rankingSort = ranking.sort((a, b)=>a.amount-b.amount); FJERNET FOR VIASUAL
@@ -23,7 +22,7 @@ export default function TopBeer(props) {
         data: {
             labels: ranking.map(beer => beer.name),
               datasets: [{
-                label: 'My First Dataset',
+                label: '',
                 data: ranking.map(beer => beer.amount),
                 backgroundColor: [
                   'rgb(255, 99, 132)',
@@ -33,7 +32,19 @@ export default function TopBeer(props) {
                   'rgb(54, 162, 235)'
                 ]
               }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              enabled: false
+            }
+          }
         }
+
     });
     return () => {
         //NÅR DATA SKIFTER SKAL DEN "FJERNE" CHARTEN OG LAVE EN NY

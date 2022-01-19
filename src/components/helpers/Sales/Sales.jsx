@@ -45,6 +45,9 @@ const namePrice = props.products.map((beer) => {
           ],
           hoverOffset: 4
         }]
+      },
+      options: {
+        responsive: true,
       }
   });
   return () => {
@@ -78,6 +81,9 @@ const namePrice = props.products.map((beer) => {
           ],
           hoverOffset: 4
         }]
+      },
+      options: {
+        responsive: true,
       }
   });
   return () => {
